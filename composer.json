@@ -11,6 +11,21 @@
         "intervention/image": "^2.7"
     },
     "license": "MIT",
+    "autoload-dev": {
+        "psr-4": {
+            "Laravel\\Elu\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laravel\\Fortify\\EluServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
     "authors": [
         {
             "name": "SirMekus",
