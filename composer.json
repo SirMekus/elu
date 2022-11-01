@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "php": "^7.3|^8.0",
-        "intervention/image": "^3.0@alpha"
+        "intervention/image": "^2.7|^3.0@alpha"
     },
     "require-dev": {
         "illuminate/support": "^8.82|^9.0"
