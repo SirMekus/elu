@@ -24,9 +24,6 @@ class Elu
 	public $max_no_of_file_to_upload;
 	public $name_of_file;
 	
-	//These are configurations for outside the web root where errors will be logged
-	public $log_file_name = "admin_logs.txt";
-	
 	public function __construct()
 	{
 		$this->width = config("elu.width");
@@ -233,7 +230,7 @@ class Elu
 			abort(422, $msg);
         }
         {
-            return back()->with('status', $msg);
+            return back()->with('elu', $msg);
         }
 	}
 }

@@ -1,6 +1,7 @@
 {
     "name": "sirmekus/elu",
     "description": "Simple and easy file uploader for Laravel-based apps",
+    "keywords": ["laravel", "image upload"],
     "type": "library",
     "require": {
         "php": "^7.3|^8.0",
@@ -28,5 +29,9 @@
             "email": "mekus600@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
