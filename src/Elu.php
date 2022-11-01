@@ -6,10 +6,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Image;
 
-//use Image;
-/**
- * Define a custom exception class
- */
 class Elu
 {
 	//This is the folder from the "public" directory that should be accessible from the web 
@@ -100,12 +96,12 @@ class Elu
 			        //if file type is not any of these specified types
 			        if(!in_array($file_type, $this->valid_mimes))
 					{
-						$this->returnError("Invalid image/file format detected for ".$file[$i]->getClientOriginalName()."");
+						$this->returnError("Invalid image/file format detected for ".$file[$i]->getClientOriginalName().". Accepted format(s) is/are:".$this->getAllowedTypes());
 			        }
 		    
 		            if($file[$i]->getSize() > $this->max_file_upload_size)//if file is larger than a specified size.
 					{
-						$this->returnError($file[$i]->getClientOriginalName()." is too large.");
+						$this->returnError($file[$i]->getClientOriginalName()." is too large. Accepted max file size is ".$this->calculateFileSize()."MB");
 	                }
 	
 	                $stock = $file[$i]->getClientOriginalName();// takes name of file 'AS IS' from user's computer in this variable.
@@ -161,12 +157,13 @@ class Elu
 			    //if file type is not any of these specified types
 			    if(!in_array($file_type, $this->valid_mimes))
 				{
-					$this->returnError("Couldn't upload this file");
+					$this->returnError("Invalid image/file format detected for ".$file->getClientOriginalName().". Accepted format(s) is/are:".$this->getAllowedTypes());
+					//$this->returnError("Couldn't upload this file");
 			    }
 		    
 		        if($file->getSize() > $this->max_file_upload_size)//if file is larger than a specified size.
 		        {
-					$this->returnError($file->getClientOriginalName()." is too large.");
+					$this->returnError($file->getClientOriginalName()." is too large. Accepted max file size is ".$this->calculateFileSize()."MB");
 	            }
 	
 	            $stock = $file->getClientOriginalName();// takes name of file 'AS IS' from user's computer in this variable.
@@ -204,9 +201,7 @@ class Elu
 		}	
     }
 
-
-
-    public function fileDelete($file)
+    public function remove($file)
 	{
 		if(is_array($file))
 		{
@@ -232,6 +227,23 @@ class Elu
         {
             return back()->with('elu', $msg);
         }
+	}
+
+	public function calculateFileSize()
+	{
+		return number_format($this->max_file_upload_size/1000000,2);
+	}
+
+	public function getAllowedTypes()
+	{
+		$mimes = "";
+		
+		foreach($this->valid_mimes as $mime)
+		{
+			$mimes []= explode('/', $mime)[1]. " ";
+		}
+
+		return trim($mimes);
 	}
 }
 ?>

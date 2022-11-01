@@ -11,10 +11,17 @@ return [
       'width'=>1280,
 
       //Allowed mime types users can upload
-      'mime_type'=>["image/jpeg", "image/png", "image/gif", "image/webp"],
+      'mime_type'=>[
+            "image/jpeg", 
+            "image/png", 
+            "image/gif", 
+            "image/webp",
+            //image/gif,
+            //image/tiff
+      ],
 
-      //Maximum file size that is accepted in your application
-      'max_size'=>5242880,//5mb
+      //Maximum file size (in bytes) that is accepted in your application
+      'max_size'=>5000000,//5mb
 
       //Maximum no. of files user(s) can upload at once. If you expect multiple files to uploade (like a gallery upload) then you can increase this value
       'max_to_upload'=>1,//
