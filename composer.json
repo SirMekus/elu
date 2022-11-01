@@ -1,0 +1,32 @@
+{
+    "name": "sirmekus/elu",
+    "description": "Simple and easy file uploader for Laravel-based apps",
+    "type": "library",
+    "require": {
+        "php": "^7.3|^8.0",
+        "intervention/image": "^3.0@alpha"
+    },
+    "require-dev": {
+        "illuminate/support": "^8.82|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laravel\\Elu\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laravel\\Elu\\EluServiceProvider"
+            ]
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SirMekus",
+            "email": "mekus600@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
