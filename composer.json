@@ -4,8 +4,8 @@
     "keywords": ["laravel", "image uploader"],
     "type": "library",
     "require": {
-        "php": "^7.3|^8.0",
-        "illuminate/support": "^8.82|^9.0"
+        "php": "^8.0.2",
+        "illuminate/support": "^9.21"
     },
     "require-dev": {
         "intervention/image": "^2.7"
@@ -23,13 +23,15 @@
             ]
         }
     },
-    "config": {
-        "sort-packages": true
-    },
     "authors": [
         {
             "name": "SirMekus",
             "email": "mekus600@gmail.com"
         }
-    ]
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
