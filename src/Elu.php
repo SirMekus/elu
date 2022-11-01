@@ -240,7 +240,7 @@ class Elu
 		
 		foreach($this->valid_mimes as $mime)
 		{
-			$mimes []= explode('/', $mime)[1]. " ";
+			$mimes .= explode('/', $mime)[1]. " ";
 		}
 
 		return trim($mimes);
