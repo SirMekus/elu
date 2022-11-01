@@ -53,14 +53,20 @@ class Elu
         return substr($prefix.bin2hex($bytes), 0, $lenght);
     }
 
-    //Returns an array/string with the renamed file as value.
+    /**
+     * @param string $file_upload_name => Name (parameter) of the incoming file from the client. Default is 'image'
+	 * 
+	 * @param bool $ignore => In certain cases image upload may be optional, thus the application should still continue with the request processing
+     *
+     * @return string|array|null
+     */
     function upload($file_upload_name="image", $ignore=false)
     {
 		if(!request()->hasFile($file_upload_name))
 		{
 			if($ignore == true)
 			{
-				return;
+				return null;
 			}
 			else
 			{
