@@ -4,7 +4,7 @@ namespace Laravel\Elu;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Intervention\Image\Image;
+use Image;
 
 //use Image;
 /**
