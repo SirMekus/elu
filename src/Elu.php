@@ -59,7 +59,7 @@ class Elu
 	 * @param bool $ignore => In certain cases image upload may be optional, thus the application should still continue with the request processing
      *
      * @return string|array|null
-     */
+    */
     function upload($file_upload_name="image", $ignore=false)
     {
 		if(!request()->hasFile($file_upload_name))
@@ -87,7 +87,6 @@ class Elu
 			//This will house the new name of the images and will be sent back to the Controller.
 	        $photos = [];
 		
-		    //Users are allowed to upload a certain number of files so that the $_FILES array is filled accordingly. But User can skip the first box for where to place the file in the html form and go for the second, third, etc. In this case the all the arrays will be set and with the same exact count but array["Name"][0] will be empty alongside other than keys pertaining the 0-th file and this will cause a bug in the script so we wanna carter for it first.
 		    for($i=0;$i<count($file);$i++)
             {
 				if(!empty($file[$i]->getClientOriginalName()))
@@ -207,6 +206,10 @@ class Elu
 		}	
     }
 
+	/**
+     * @param string|array $file => name of file to delete
+     *
+    */
     public function remove($file)
 	{
 		if(is_array($file))
