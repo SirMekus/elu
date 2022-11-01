@@ -1,17 +1,15 @@
 {
     "name": "sirmekus/elu",
     "description": "Simple and easy file uploader for Laravel-based apps",
-    "keywords": ["laravel", "image uploader"],
     "type": "library",
     "require": {
-        "php": "^8.0.2",
-        "illuminate/support": "^9.21"
+        "php": "^7.3|^8.0",
+        "intervention/image": "^3.0@alpha"
     },
     "require-dev": {
-        "intervention/image": "^2.7"
+        "illuminate/support": "^8.82|^9.0"
     },
-    "license": "MIT",
-    "autoload-dev": {
+    "autoload": {
         "psr-4": {
             "Laravel\\Elu\\": "src/"
         }
@@ -19,10 +17,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Laravel\\Fortify\\EluServiceProvider"
+                "Laravel\\Elu\\EluServiceProvider"
             ]
         }
     },
+    "license": "MIT",
     "authors": [
         {
             "name": "SirMekus",
