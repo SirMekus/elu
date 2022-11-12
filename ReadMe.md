@@ -1,6 +1,8 @@
 # Elu
 
-Elu is a Laravel-powered file (image) uploader that leaverages on the existing strength of Laravel's strong validation to add power to an exisitng web app. One of the additional benefits include enforcing (or constraining) image dimension. For instance, imagine your application expects image dimension to be 300/300px (height/width) and a user uploads an image with a dimension of 500/200px. Strictly constraining the dimension (using traditional approach) may result in low quality and a not-too-nice image. This library takes care of this effectively without sacrificing quality of the uploaded image.
+Elu is a Laravel-powered file uploader that leaverages on the existing strength of Laravel's strong validation to add power to an exisitng web app. One of the additional benefits include enforcing (or constraining) image dimension. For instance, imagine your application expects image dimension to be 300/300px (height/width) and a user uploads an image with a dimension of 500/200px. Strictly constraining the dimension (using traditional approach) may result in low quality and a not-too-nice image. This library takes care of this effectively without sacrificing quality of the uploaded image.
+
+> Please note that this package is not limited to image upload; It takes care of any type of file upload in general - pdf, doc, audio, video, image, etc.
 
 ## Installation
 
@@ -10,13 +12,13 @@ To get started all you need to do is:
 composer require sirmekus/elu
 ```
 
-Once installed you can decide to publish the package's `elu` config file which you can then customise to your taste by running:
+Once installed you may publish the package's `elu` config file which you can then customise to your taste by running:
 
 ```php
 php artisan vendor:publish --provider="Laravel\Elu\EluServiceProvider"
 ```
 
->Please note that this package stores uploaded files/images in the storage folder and expects that symbolic link must have already been created. If you haven't, no problem. Simply run:
+>Please note that this package stores uploaded files/images in the `storage` folder and expects that symbolic link must have already been created. If you haven't, no problem. Simply run:
 
 ```php
 php artisan storage:link
@@ -144,9 +146,9 @@ Or, if the image is saved in a sub-directory (in storage/public/):
 {{ asset('storage/sub_directory/'.$user->image)}}
 ```
 
-## Deleting Image
+## Deleting Image/File
 
-To delete an image it follows the same logic and configuration as if uploading the image. Simply pass the image name(s) - string or array - to the `remove()` method and the job is done. Example:
+To delete an image it follows the same logic and configuration as if uploading the image/file. Simply pass the image/file name(s) - string or array - to the `remove()` method and the job is done. Example:
 
 ```php
 namespace App\Http\Controllers;
