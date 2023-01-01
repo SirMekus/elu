@@ -75,7 +75,7 @@ class Elu
 		    
 		            if($file[$i]->getSize() > $this->max_file_upload_size)//if file is larger than a specified size.
 					{
-						$this->returnError($file[$i]->getClientOriginalName()." is too large. Accepted max file size is ".$this->calculateFileSize()."MB");
+						$this->returnError($file[$i]->getClientOriginalName()." is too large. Accepted max file size is ".$this->calculateFileSize($file[$i]->getSize()));
 	                }
 				}
             }
@@ -98,7 +98,7 @@ class Elu
 		    
 		        if($file->getSize() > $this->max_file_upload_size)
 		        {
-					$this->returnError($file->getClientOriginalName()." is too large. Accepted max file size is ".$this->calculateFileSize()."MB");
+					$this->returnError($file->getClientOriginalName()." is too large. Accepted max file size is ".$this->calculateFileSize($file->getSize()));
 	            }
 		    }
 		}
